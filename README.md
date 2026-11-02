@@ -10,7 +10,9 @@ Site informativo, **voluntário e gratuito**, do CCI "Wilma Jundi Dubieux". Proj
 |---|---|
 | `index.html` | o site (uma página só, com as seções Início, Programação, Passeios, Notícias e Como chegar) |
 | `css/estilo.css` | aparência (letra grande, contraste alto) |
-| `js/app.js` | lê a planilha e monta a programação, os passeios, as notícias e os avisos |
+| `js/leitura.js` | entende o que foi escrito na planilha (dia, hora, data, sim/não), aceitando variações |
+| `js/app.js` | monta a programação, os passeios, as notícias e os avisos |
+| `conferir.html` | página de apoio: lista o que o site não entendeu na planilha |
 | `config.js` | telefone, endereço, links da planilha e chave do modo eleitoral |
 | `dados/*.csv` | planilha de exemplo (uma aba por arquivo) |
 | `docs/planilha-modelo.md` | colunas da planilha e como ligá-la ao site |

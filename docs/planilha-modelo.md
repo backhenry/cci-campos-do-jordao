@@ -12,6 +12,19 @@ Os arquivos de exemplo estão na pasta [`dados/`](../dados) (um `.csv` por aba).
 - Linha em branco é ignorada.
 - Escrever `[EXEMPLO]` no começo do título faz aparecer o selo "EXEMPLO". Usar só no protótipo.
 
+**Proteções contra erro (já configuradas na planilha "Site do CCI")**
+
+- **Menus de escolha** (setinha): `dia_da_semana`, `semana_do_mes`, `tipo` (eventos), `ativo`, `importante` e `autorizacao_de_imagem`. A planilha recusa qualquer outro valor e mostra uma explicação.
+- **Datas** só aceitam data válida (formato dd/mm/aaaa) e **horários** da programação só aceitam hora (formato 09:00).
+- **Cores:** linha **vermelho claro** = falta algo obrigatório; linha **cinza riscada** = desligada (`ativo` = não) ou com data que já passou.
+- **Notas nos cabeçalhos:** parar o mouse (ou tocar) no nome de uma coluna mostra o que escrever ali.
+- **Primeira linha travada:** só o dono da planilha edita os nomes das colunas. Se a planilha mudar de dono, refazer em *Dados > Proteger páginas e intervalos*.
+- **Aba LEIA-ME** (a primeira): resumo deste guia. Não é lida pelo site.
+- **O site também tolera variações** ("9h", "Terça-feira", "3ª", "SIM", "2/11" sem ano), para o que escapar das regras acima.
+- **Página de conferência:** `conferir.html` (endereço do site + `/conferir.html`) lê a planilha como o site e lista, linha por linha, o que não foi entendido.
+
+Ao criar a planilha numa conta nova, essas proteções precisam ser refeitas (ou a planilha copiada com *Arquivo > Fazer uma cópia*, que leva tudo junto, mas aí os links de "Publicar na web" mudam e o `config.js` precisa ser atualizado).
+
 ---
 
 ## Aba `programacao`: atividades que se repetem toda semana

@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#1d5240">
   <!-- PROTÓTIPO: não aparecer no Google. Apagar esta linha quando o site for oficial. -->
   <meta name="robots" content="noindex, nofollow">
-  <link rel="stylesheet" href="css/estilo.css?v=14">
+  <link rel="stylesheet" href="css/estilo.css?v=17">
 </head>
 <body>
   <!-- Ícones dos botões (desenhos simples, sem texto) -->
@@ -190,7 +190,24 @@
             <li>CPF</li>
             <li>Endereço</li>
             <li>Telefone para contato</li>
-            <li>Número do NIS, PIS ou PASEP</li>
+            <li>Número do NIS, PIS ou PASEP
+              <details class="ajuda-doc">
+                <summary>O que é isso e onde encontrar?</summary>
+                <div class="ajuda-doc-texto">
+                  <p><strong>O que é:</strong> um número que o governo dá a cada pessoa. Quem trabalhou de carteira assinada tem o <strong>PIS</strong>; quem foi servidor público tem o <strong>PASEP</strong>; quem está em algum programa social tem o <strong>NIS</strong>. É o mesmo tipo de número: quem tem um deles já tem o que precisa.</p>
+                  <p><strong>Onde achar, sem sair de casa:</strong></p>
+                  <ul>
+                    <li><strong>Carteira de Trabalho de papel:</strong> nas primeiras páginas, procure um carimbo ou etiqueta escrito “PIS” ou “PASEP”.</li>
+                    <li><strong>Cartão Cidadão ou cartão do Bolsa Família</strong> (da Caixa): o número vem impresso no cartão.</li>
+                    <li><strong>Aplicativo Carteira de Trabalho Digital</strong>, no celular: aparece nos dados pessoais.</li>
+                    <li><strong>Aplicativo Meu INSS ou telefone 135</strong>: lá o número aparece com o nome de “NIT”, que é o mesmo.</li>
+                  </ul>
+                  <p><strong>Se nunca teve nenhum desses:</strong> o número é criado quando a pessoa faz o <strong>Cadastro Único</strong> no CRAS (Centro de Referência de Assistência Social). Leve RG e CPF.</p>
+                  <p>Na dúvida, ligue para o CCI antes de ir: <a class="js-telefone-link" href="tel:+551236624766"><span class="js-telefone-texto">(12) 3662-4766</span></a>.</p>
+                  <p><span class="selo selo-confirmar">texto a revisar com a coordenação</span></p>
+                </div>
+              </details>
+            </li>
             <li>Laudo médico de ortopedista, clínico geral e cardiologista <span class="selo selo-confirmar">a confirmar se são os três</span></li>
           </ul>
         </div>
@@ -355,7 +372,7 @@
   <!-- Folha para imprimir (montada pelo site na hora de imprimir) -->
   <div id="folha-impressao" class="folha-impressao" aria-hidden="true"></div>
 
-  <script src="config.js?v=14"></script>
-  <script src="js/app.js?v=14"></script>
+  <script src="config.js?v=17"></script>
+  <script src="js/app.js?v=17"></script>
 </body>
 </html>

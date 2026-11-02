@@ -419,3 +419,25 @@ body { padding-bottom: 92px; }
 .marca em { white-space: nowrap; }
 body { padding-bottom: 5.5rem; }
 @media (min-width: 48rem) { body { padding-bottom: 0; } }
+
+/* ---------- Ajuda sobre um documento (dentro do caderno) ---------- */
+.ajuda-doc { margin: 0 0 .4rem; line-height: 1.6; }
+.ajuda-doc summary {
+  display: block; min-height: 48px; padding: .55rem 0; line-height: 1.5; cursor: pointer;
+  font-weight: 700; color: var(--verde); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px;
+  list-style: none;
+}
+.ajuda-doc summary::-webkit-details-marker { display: none; }
+.ajuda-doc summary::before { content: "+ "; white-space: pre; }
+.ajuda-doc[open] summary::before { content: "− "; }
+.ajuda-doc summary:focus-visible { outline: 4px solid var(--foco); outline-offset: 3px; border-radius: 4px; }
+.ajuda-doc-texto {
+  position: relative; z-index: 1; background: var(--branco); border: 1px solid var(--borda); border-radius: 8px;
+  padding: 1rem 1.1rem; margin: .25rem 0 .75rem -1.85rem;
+}
+.ajuda-doc-texto p { margin: 0 0 .75rem; }
+.ajuda-doc-texto p:last-child { margin-bottom: 0; }
+.ajuda-doc-texto ul { list-style: disc; padding-left: 1.25rem; margin: 0 0 .75rem; }
+.caderno .ajuda-doc-texto li { line-height: 1.5; padding: .2rem 0; }
+.caderno .ajuda-doc-texto li::before { content: none; }
+.ajuda-doc-texto a { display: inline-flex; align-items: center; min-height: 48px; font-weight: 700; }

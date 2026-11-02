@@ -12,13 +12,6 @@
   <!-- trilho do bondinho -->
   <path d="M-10 150C120 135 220 160 320 145s200-30 300-20" stroke="#7d5a3c" stroke-width="10" stroke-dasharray="3 9"/>
   <path d="M-10 146C120 131 220 156 320 141s200-30 300-20M-10 154C120 139 220 164 320 149s200-30 300-20" stroke="#7d5a3c" stroke-width="2.5"/>
-  <!-- bondinho -->
-  <g transform="translate(150 118) rotate(3)">
-    <rect x="0" y="0" width="64" height="30" rx="6" fill="#c8452c" stroke="#5a2e00" stroke-width="2.5"/>
-    <rect x="0" y="0" width="64" height="9" rx="4" fill="#f3d58c" stroke="#5a2e00" stroke-width="2.5"/>
-    <path d="M10 14h10v8H10zM27 14h10v8H27zM44 14h10v8H44z" fill="#fffdf7" stroke="#5a2e00" stroke-width="2"/>
-    <path d="M32 0l-6-14h12" stroke="#5a2e00" stroke-width="2.5"/>
-  </g>
   <!-- parada Fracalanza (abrigo) -->
   <g transform="translate(330 88)">
     <path d="M0 22h56l-6-14H6z" fill="#1d5240" stroke="#13392b" stroke-width="2.5"/>

@@ -82,6 +82,6 @@ Depois, abra `http://localhost:8080` no navegador. Abrir o `index.html` com dois
 - [ ] Posições do mapinha desenhado conferidas no local
 - [ ] Planilha criada na conta do CCI/Secretaria, publicada, com os links no `config.js`
 - [ ] Linhas `[EXEMPLO]` apagadas da planilha
-- [ ] `prototipo: false` no `config.js`
+- [ ] `prototipo: false` no `config.js` e linha `noindex` apagada do `index.html`
 - [ ] Termo de voluntariado assinado (se a Prefeitura pedir)
 - [ ] Coordenadora treinada com o guia impresso

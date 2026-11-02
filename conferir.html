@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conferir a planilha – CCI</title>
+  <!-- Página de apoio da coordenação: nunca aparece no Google -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="css/estilo.css?v=20">
+  <style>
+    .conferir { padding: 2rem 0 3rem; }
+    .conferir h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); }
+    .aba { margin: 0 0 1.25rem; }
+    .aba h2 { font-size: 1.5rem; margin: 0 0 .5rem; }
+    .aba-ok { border-left: 6px solid var(--verde); }
+    .aba-erro { border-left: 6px solid var(--terracota); }
+    .resumo { font-weight: 700; margin: 0 0 .75rem; }
+    .aba-ok .resumo { color: var(--verde-escuro); }
+    .aba-erro .resumo { color: var(--terracota); }
+    .problemas { margin: 0; padding-left: 1.25rem; }
+    .problemas li { margin: 0 0 .6rem; }
+    .problemas .grave { color: var(--terracota); font-weight: 700; }
+    .observacoes { margin: 1rem 0 0; }
+    .observacoes summary { cursor: pointer; min-height: 48px; display: flex; align-items: center; color: var(--verde-escuro); font-weight: 700; }
+    .carregando { font-style: italic; }
+  </style>
+</head>
+<body>
+  <main class="largura conferir" id="conteudo">
+    <h1>Conferir a planilha</h1>
+    <p>Esta página lê a planilha <strong>"Site do CCI"</strong> do mesmo jeito que o site e mostra o que ele <strong>não conseguiu entender</strong>. Use depois de mexer na planilha.</p>
+    <p>A planilha leva até <strong>5 minutos</strong> para chegar aqui. Se acabou de mudar algo, espere um pouco e toque em <em>Conferir de novo</em>.</p>
+    <p><button type="button" class="botao botao-principal" id="conferir-de-novo">Conferir de novo</button>
+      <a class="botao botao-claro" href="./">Ver o site</a></p>
+    <p id="quando" aria-live="polite"></p>
+    <div id="resultado" aria-live="polite"><p class="carregando">Lendo a planilha…</p></div>
+  </main>
+  <script src="config.js?v=20"></script>
+  <script src="js/leitura.js?v=20"></script>
+  <script src="js/conferir.js?v=20"></script>
+</body>
+</html>

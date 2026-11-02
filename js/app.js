@@ -12,6 +12,9 @@
   "use strict";
 
   var CONFIG = window.CCI_CONFIG || { planilha: {} };
+  var L = window.CCI_LEITURA; // leitura.js: entende dia, hora, data e sim/não escritos de vários jeitos
+  var semAcento = L.semAcento, lerData = L.lerData, numeroDoDia = L.numeroDoDia,
+    sim = L.sim, ativo = L.ativo, hhmm = L.hhmm, lerCSV = L.lerCSV;
   var VERSAO_CACHE = "cci-v1-";
   var TEMPO_LIMITE_MS = 8000;
   var FUSO = "America/Sao_Paulo";
@@ -22,10 +25,6 @@
     "agosto", "setembro", "outubro", "novembro", "dezembro"];
 
   // ---------- Utilidades ----------
-
-  function semAcento(texto) {
-    return String(texto || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
-  }
 
   function el(tag, attrs, filhos) {
     var no = document.createElement(tag);
@@ -52,31 +51,10 @@
     return d;
   }
 
-  // Aceita "15/11/2026", "15/11/26" ou "2026-11-15"
-  function lerData(texto) {
-    var t = String(texto || "").trim();
-    var m = t.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
-    if (m) {
-      var ano = Number(m[3]); if (ano < 100) ano += 2000;
-      return new Date(ano, Number(m[2]) - 1, Number(m[1]));
-    }
-    m = t.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (m) return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
-    return null;
-  }
-
   function dataPorExtenso(d) {
     return DIAS[d.getDay()] + ", " + d.getDate() + " de " + MESES[d.getMonth()];
   }
 
-  // "segunda", "Segunda-feira", "seg" -> 1
-  function numeroDoDia(texto) {
-    var t = semAcento(texto).slice(0, 3);
-    return ["dom", "seg", "ter", "qua", "qui", "sex", "sab"].indexOf(t);
-  }
-
-  function sim(valor) { return ["sim", "s", "x", "yes", "1"].indexOf(semAcento(valor)) !== -1; }
-  function ativo(linha) { return linha.ativo === undefined || linha.ativo === "" || sim(linha.ativo); }
   function ehExemplo(texto) { return /\[?exemplo\]?/i.test(texto || ""); }
 
   // Tira o "[EXEMPLO]" do texto e devolve o selo separado
@@ -85,36 +63,6 @@
     var partes = [limpo];
     if (ehExemplo(texto)) partes.push(" ", el("span", { class: "selo selo-exemplo" }, ["EXEMPLO"]));
     return partes;
-  }
-
-  // ---------- Leitura de CSV (o formato da planilha publicada) ----------
-
-  function lerCSV(texto) {
-    var linhas = [], linha = [], campo = "", aspas = false;
-    texto = String(texto).replace(/^﻿/, "");
-    for (var i = 0; i < texto.length; i++) {
-      var c = texto[i];
-      if (aspas) {
-        if (c === '"' && texto[i + 1] === '"') { campo += '"'; i++; }
-        else if (c === '"') aspas = false;
-        else campo += c;
-      } else if (c === '"') aspas = true;
-      else if (c === ",") { linha.push(campo); campo = ""; }
-      else if (c === "\n" || c === "\r") {
-        if (c === "\r" && texto[i + 1] === "\n") i++;
-        linha.push(campo); linhas.push(linha); linha = []; campo = "";
-      } else campo += c;
-    }
-    if (campo !== "" || linha.length) { linha.push(campo); linhas.push(linha); }
-
-    var cabecalho = (linhas.shift() || []).map(function (h) { return semAcento(h).replace(/\s+/g, "_"); });
-    return linhas
-      .filter(function (l) { return l.some(function (v) { return v.trim() !== ""; }); })
-      .map(function (l) {
-        var obj = {};
-        cabecalho.forEach(function (h, i) { obj[h] = (l[i] || "").trim(); });
-        return obj;
-      });
   }
 
   // ---------- Busca com plano B ----------
@@ -176,19 +124,9 @@
 
   // ---------- Programação ----------
 
-  // A planilha pode publicar "9:00:00" quando a hora é digitada como hora; mostra "09:00"
-  function hhmm(texto) {
-    var m = String(texto || "").trim().match(/^(\d{1,2}):(\d{2})(:\d{2})?$/);
-    return m ? (m[1].length === 1 ? "0" + m[1] : m[1]) + ":" + m[2] : String(texto || "").trim();
-  }
-
-  // Coluna semana_do_mes: vazio = toda semana; 1, 2, 3, 4, 5 = só naquela semana do mês; "última"
-  function ordinalDoMes(valor) {
-    var t = semAcento(valor);
-    if (t.indexOf("ult") === 0) return 9;
-    var n = parseInt(t, 10);
-    return isNaN(n) ? 0 : n;
-  }
+  // Coluna semana_do_mes: 0 = toda semana; 1 a 5 = só naquela semana do mês; 9 = última.
+  // Valor que não dá para entender conta como toda semana, para a atividade não sumir.
+  function ordinalDoMes(valor) { return Math.max(0, L.ordinalDoMes(valor)); }
 
   function rotuloOrdinal(valor) {
     var n = ordinalDoMes(valor);
@@ -386,7 +324,7 @@
     ultimaProgramacao = resultado.linhas;
 
     // Atividades que mudam conforme a semana do mês (ex.: 1ª sexta = Bingo)
-    var mensais = resultado.linhas.filter(ativo).filter(function (a) { return a.semana_do_mes; });
+    var mensais = resultado.linhas.filter(ativo).filter(function (a) { return ordinalDoMes(a.semana_do_mes) > 0; });
     var boxMes = document.getElementById("mensais");
     if (boxMes) {
       limpar(boxMes);
@@ -415,7 +353,7 @@
   function quandoAcontece(a) {
     var n = numeroDoDia(a.dia_da_semana);
     var dia = DIAS[n].replace("-feira", "");
-    if (a.semana_do_mes) dia = rotuloOrdinal(a.semana_do_mes) + " " + dia + " do mês";
+    if (ordinalDoMes(a.semana_do_mes)) dia = rotuloOrdinal(a.semana_do_mes) + " " + dia + " do mês";
     var hora = hhmm(a.horario_inicio) + (a.horario_fim ? " às " + hhmm(a.horario_fim) : "");
     return maiuscula(dia) + ", " + hora + (a.responsavel ? ", com " + a.responsavel : "");
   }
@@ -470,7 +408,7 @@
       folha.appendChild(el("h2", {}, [maiuscula(DIAS[n])]));
       folha.appendChild(el("ul", {}, lista.map(function (a) {
         var hora = hhmm(a.horario_inicio) + (a.horario_fim ? " às " + hhmm(a.horario_fim) : "");
-        var extra = a.semana_do_mes ? " (só na " + rotuloOrdinal(a.semana_do_mes).toLowerCase() + " " + DIAS[n].replace("-feira", "") + " do mês)" : "";
+        var extra = ordinalDoMes(a.semana_do_mes) ? " (só na " + rotuloOrdinal(a.semana_do_mes).toLowerCase() + " " + DIAS[n].replace("-feira", "") + " do mês)" : "";
         return el("li", {}, [el("strong", {}, [hora]), "  " + comQuem(a) + extra]);
       })));
     });

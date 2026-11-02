@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- papel -->
+  <rect x="2" y="2" width="596" height="336" rx="14" fill="#fffdf7" stroke="#e3d8c4" stroke-width="2"/>
+  <!-- morros e praças -->
+  <path d="M20 90c40-40 110-50 160-20s70 40 40 60-120 10-170-5S5 105 20 90z" fill="#e3ede6"/>
+  <path d="M410 40c50-20 140-10 165 25s-20 55-80 50-120-15-120-40 10-27 35-35z" fill="#e3ede6"/>
+  <path d="M60 270c40-20 120-20 150 0s10 45-50 48-130-8-120-25 0-15 20-23z" fill="#e3ede6"/>
+  <!-- avenida -->
+  <path d="M-10 205C120 190 220 215 320 200s200-30 300-20" stroke="#d8ccb4" stroke-width="54"/>
+  <path d="M-10 205C120 190 220 215 320 200s200-30 300-20" stroke="#f1e8d8" stroke-width="46"/>
+  <path d="M-10 205C120 190 220 215 320 200s200-30 300-20" stroke="#ffffff" stroke-width="3" stroke-dasharray="14 14"/>
+  <!-- trilho do bondinho -->
+  <path d="M-10 150C120 135 220 160 320 145s200-30 300-20" stroke="#7d5a3c" stroke-width="10" stroke-dasharray="3 9"/>
+  <path d="M-10 146C120 131 220 156 320 141s200-30 300-20M-10 154C120 139 220 164 320 149s200-30 300-20" stroke="#7d5a3c" stroke-width="2.5"/>
+  <!-- bondinho -->
+  <g transform="translate(150 118) rotate(3)">
+    <rect x="0" y="0" width="64" height="30" rx="6" fill="#c8452c" stroke="#5a2e00" stroke-width="2.5"/>
+    <rect x="0" y="0" width="64" height="9" rx="4" fill="#f3d58c" stroke="#5a2e00" stroke-width="2.5"/>
+    <path d="M10 14h10v8H10zM27 14h10v8H27zM44 14h10v8H44z" fill="#fffdf7" stroke="#5a2e00" stroke-width="2"/>
+    <path d="M32 0l-6-14h12" stroke="#5a2e00" stroke-width="2.5"/>
+  </g>
+  <!-- parada Fracalanza (abrigo) -->
+  <g transform="translate(330 88)">
+    <path d="M0 22h56l-6-14H6z" fill="#1d5240" stroke="#13392b" stroke-width="2.5"/>
+    <path d="M10 22v26M46 22v26" stroke="#13392b" stroke-width="4"/>
+    <path d="M6 48h44" stroke="#13392b" stroke-width="3"/>
+  </g>
+  <!-- CCI (prédio + alfinete) -->
+  <g transform="translate(362 236)">
+    <rect x="0" y="22" width="70" height="44" rx="4" fill="#fdf1ea" stroke="#7d2f12" stroke-width="3"/>
+    <path d="M-6 24 35 0l41 24" fill="#f3d58c" stroke="#7d2f12" stroke-width="3"/>
+    <path d="M28 66V44h14v22" stroke="#7d2f12" stroke-width="3"/>
+    <path d="M8 34h12v8H8zM50 34h12v8H50z" stroke="#7d2f12" stroke-width="2.5"/>
+  </g>
+  <g transform="translate(450 214)">
+    <path d="M18 54S0 34 0 20a18 18 0 0 1 36 0c0 14-18 34-18 34z" fill="#7d2f12"/>
+    <circle cx="18" cy="19" r="7" fill="#fffdf7"/>
+  </g>
+  <!-- araucárias -->
+  <g stroke="#1d5240" stroke-width="3">
+    <path d="M90 92v-40M70 62c8-6 32-6 40 0M74 52c8-5 24-5 32 0M80 42c6-3 14-3 20 0"/>
+    <path d="M520 92v-46M496 58c10-7 38-7 48 0M502 46c8-5 28-5 36 0M508 36c6-3 18-3 24 0"/>
+    <path d="M140 300v-38M122 272c8-6 28-6 36 0M128 262c6-4 18-4 24 0"/>
+  </g>
+</svg>

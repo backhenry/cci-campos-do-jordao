@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Centro de Convivência do Idoso – Campos do Jordão</title>
+  <meta name="description" content="Centro de Convivência do Idoso (CCI) de Campos do Jordão: atividades gratuitas para pessoas com 60 anos ou mais. Programação, passeios, endereço e telefone.">
+  <meta name="theme-color" content="#1d5240">
+  <link rel="stylesheet" href="css/estilo.css?v=13">
+</head>
+<body>
+  <!-- Ícones dos botões (desenhos simples, sem texto) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-telefone" viewBox="0 0 24 24"><path d="M5 3.5h3.5l2 5-2.6 1.6a11.5 11.5 0 0 0 6 6l1.6-2.6 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-local" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-conversa" viewBox="0 0 24 24"><path d="M4 19.5l1.3-3.9A8 8 0 1 1 8.4 18.7z"/></symbol>
+    <symbol id="i-impressora" viewBox="0 0 24 24"><path d="M7 8V3.5h10V8M7 17H4.5V9.5a1.5 1.5 0 0 1 1.5-1.5h12a1.5 1.5 0 0 1 1.5 1.5V17H17M7 13.5h10V21H7z"/></symbol>
+  </svg>
+
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="faixa-prototipo" id="faixa-prototipo">
+    <div class="largura">
+      <strong>Protótipo.</strong> <span class="selo selo-exemplo">EXEMPLO</span> = não é real. <span class="selo selo-confirmar">a confirmar</span> = falta conferir.
+    </div>
+  </div>
+
+  <header class="topo">
+    <div class="largura topo-linha">
+      <a class="marca" href="#inicio">CCI <em>Campos do Jordão</em></a>
+      <nav aria-label="Seções do site" class="menu-topo">
+        <ul class="menu">
+          <li><a href="#atividades">Atividades</a></li>
+          <li><a href="#programacao">Programação</a></li>
+          <li><a href="#passeios">Passeios</a></li>
+          <li data-publicidade><a href="#noticias">Notícias</a></li>
+          <li><a href="#como-chegar">Como chegar</a></li>
+        </ul>
+      </nav>
+      <div class="tamanho-letra" role="group" aria-label="Tamanho da letra">
+        <button type="button" class="js-letra" data-passo="-1" aria-label="Diminuir a letra">A−</button>
+        <button type="button" class="js-letra" data-passo="1" aria-label="Aumentar a letra">A+</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- INÍCIO: o essencial na primeira tela -->
+    <section id="inicio" class="abertura" aria-labelledby="titulo-inicio">
+      <div class="largura abertura-grade">
+        <figure class="abertura-foto">
+          <picture>
+            <source media="(min-width: 48rem)" srcset="img/bondinho-1280.jpg">
+            <img src="img/bondinho-720.jpg" width="720" height="540" alt="Bondinho vermelho e amarelo passando pelos trilhos numa rua arborizada, num dia de sol.">
+          </picture>
+          <figcaption>O bondinho, que passa pertinho do CCI. Foto: BêS, CC BY-SA</figcaption>
+        </figure>
+
+        <div class="abertura-texto">
+          <p class="nome-oficial">Centro de Convivência do Idoso <span>“Wilma Jundi Dubieux”</span></p>
+          <h1 id="titulo-inicio">Um lugar para fazer amigos, aprender e se divertir.</h1>
+          <p class="chamada">Atividades <strong>gratuitas</strong> para quem tem <strong>60 anos ou mais</strong>, de segunda a sexta, aqui em Campos do Jordão.</p>
+          <div class="botoes">
+            <a class="botao botao-principal js-telefone-link" href="tel:+551236624766">
+              <svg class="icone" aria-hidden="true"><use href="#i-telefone"/></svg>
+              <span>Ligar <span class="js-telefone-texto">(12) 3662-4766</span></span>
+            </a>
+            <a class="botao botao-claro" href="#como-chegar">
+              <svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>
+              <span>Como chegar</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="largura">
+      <div id="avisos" class="avisos" aria-live="polite"></div>
+
+      <!-- Bilhete com o essencial -->
+      <dl class="bilhete" aria-label="Informações principais">
+        <div>
+          <dt>Quando</dt>
+          <dd>Segunda a sexta, das 8h15 às 16h <span class="selo selo-confirmar">confirmar horário de abertura</span></dd>
+        </div>
+        <div>
+          <dt>Onde</dt>
+          <dd>Av. Frei Orestes Girardi, 105, Abernéssia. Perto da Parada Fracalanza do bondinho.</dd>
+        </div>
+        <div>
+          <dt>Telefone</dt>
+          <dd><a class="js-telefone-link" href="tel:+551236624766"><span class="js-telefone-texto">(12) 3662-4766</span></a></dd>
+        </div>
+      </dl>
+
+      <!-- Índice (só no celular; no computador o menu fica no topo) -->
+      <nav aria-label="Neste site" class="indice">
+        <h2>Neste site</h2>
+        <ul>
+          <li><a href="#atividades">O que se faz por aqui</a></li>
+          <li><a href="#participar">Como participar</a></li>
+          <li><a href="#programacao">Programação</a></li>
+          <li><a href="#passeios">Passeios e eventos</a></li>
+          <li data-publicidade><a href="#noticias">Notícias e fotos</a></li>
+          <li><a href="#familia">Para a família</a></li>
+          <li><a href="#como-chegar">Como chegar</a></li>
+        </ul>
+      </nav>
+
+      <!-- O QUE SE FAZ POR AQUI: cada grupo abre e mostra os dias e horários (vindos da planilha) -->
+      <section id="atividades" class="secao" aria-labelledby="titulo-atividades">
+        <h2 id="titulo-atividades">O que se faz por aqui</h2>
+        <p class="intro">Toque em um grupo para ver os dias e horários de cada atividade.</p>
+        <ul class="grupos">
+          <li class="grupo">
+            <details>
+              <summary>
+                <img src="img/ilustracoes/movimento.svg" alt="" width="120" height="120">
+                <span class="grupo-texto"><span class="grupo-nome">Corpo em movimento</span>
+                <span class="grupo-lista">Ginástica, ginástica funcional, aerofight, alongamento, dança e tênis de mesa.</span>
+                <span class="grupo-abrir"><span class="quando-fechado">Ver dias e horários</span><span class="quando-aberto">Esconder horários</span></span></span>
+              </summary>
+              <div class="grupo-horarios" data-busca="ginastica,aerofight,funcional,alongamento,danca,tenis"><p>Veja na programação mais abaixo.</p></div>
+            </details>
+          </li>
+          <li class="grupo">
+            <details>
+              <summary>
+                <img src="img/ilustracoes/maos.svg" alt="" width="120" height="120">
+                <span class="grupo-texto"><span class="grupo-nome">Mãos e criatividade</span>
+                <span class="grupo-lista">Artesanato e aulas de caligrafia.</span>
+                <span class="grupo-abrir"><span class="quando-fechado">Ver dias e horários</span><span class="quando-aberto">Esconder horários</span></span></span>
+              </summary>
+              <div class="grupo-horarios" data-busca="artesanato,caligrafia"><p>Veja na programação mais abaixo.</p></div>
+            </details>
+          </li>
+          <li class="grupo">
+            <details>
+              <summary>
+                <img src="img/ilustracoes/voz.svg" alt="" width="120" height="120">
+                <span class="grupo-texto"><span class="grupo-nome">Voz e palco</span>
+                <span class="grupo-lista">Grupo de canto, oficina de teatro e café com poesia.</span>
+                <span class="grupo-abrir"><span class="quando-fechado">Ver dias e horários</span><span class="quando-aberto">Esconder horários</span></span></span>
+              </summary>
+              <div class="grupo-horarios" data-busca="canto,teatro,poesia"><p>Veja na programação mais abaixo.</p></div>
+            </details>
+          </li>
+          <li class="grupo">
+            <details>
+              <summary>
+                <img src="img/ilustracoes/cuidado.svg" alt="" width="120" height="120">
+                <span class="grupo-texto"><span class="grupo-nome">Cuidado</span>
+                <span class="grupo-lista">Massagem e atendimento com psicóloga.</span>
+                <span class="grupo-abrir"><span class="quando-fechado">Ver dias e horários</span><span class="quando-aberto">Esconder horários</span></span></span>
+              </summary>
+              <div class="grupo-horarios" data-busca="massagem,psicolog"><p>Veja na programação mais abaixo.</p></div>
+            </details>
+          </li>
+          <li class="grupo">
+            <details>
+              <summary>
+                <img src="img/ilustracoes/encontros.svg" alt="" width="120" height="120">
+                <span class="grupo-texto"><span class="grupo-nome">Encontros e passeios</span>
+                <span class="grupo-lista">Bingo, jogos de tabuleiro e passeio ao Museu Felícia Leirner.</span>
+                <span class="grupo-abrir"><span class="quando-fechado">Ver dias e horários</span><span class="quando-aberto">Esconder horários</span></span></span>
+              </summary>
+              <div class="grupo-horarios" data-busca="bingo,tabuleiro,museu,passeio"><p>Veja na programação mais abaixo.</p></div>
+            </details>
+          </li>
+        </ul>
+      </section>
+
+      <!-- COMO PARTICIPAR -->
+      <section id="participar" class="secao participar" aria-labelledby="titulo-participar">
+        <div>
+          <h2 id="titulo-participar">Como participar</h2>
+          <ol class="passos">
+            <li><strong>Ter 60 anos ou mais.</strong> Não paga nada: todas as atividades são gratuitas.</li>
+            <li><strong>Ir até o CCI</strong> e fazer a inscrição pessoalmente.</li>
+            <li><strong>Levar os documentos</strong> da lista a seguir.</li>
+          </ol>
+        </div>
+        <div class="caderno">
+          <h3>Leve com você</h3>
+          <ul>
+            <li>RG</li>
+            <li>CPF</li>
+            <li>Endereço</li>
+            <li>Telefone para contato</li>
+            <li>Número do NIS, PIS ou PASEP</li>
+            <li>Laudo médico de ortopedista, clínico geral e cardiologista <span class="selo selo-confirmar">a confirmar se são os três</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROGRAMAÇÃO -->
+      <section id="programacao" class="secao" aria-labelledby="titulo-programacao">
+        <h2 id="titulo-programacao">Programação</h2>
+        <p class="estado" id="estado-programacao"></p>
+
+        <div id="hoje" class="cartao cartao-hoje">
+          <h3>Hoje</h3>
+          <p>Carregando a programação…</p>
+        </div>
+
+        <h3 class="subtitulo">Nos próximos dias</h3>
+        <div id="semana" class="semana">
+          <p class="aviso-falha">Se a programação não aparecer, ligue para o CCI ou vá até lá: a programação também fica no mural da unidade.</p>
+        </div>
+        <p id="sem-atividade" class="sem-atividade"></p>
+        <div id="mensais" class="mensais"></div>
+        <p class="nota">Grade de atividades de outubro de 2026. <span class="selo selo-confirmar">confirmar se vale para novembro</span></p>
+        <p class="voltar"><a href="#inicio">Voltar ao início</a></p>
+      </section>
+
+      <!-- PASSEIOS E EVENTOS -->
+      <section id="passeios" class="secao" aria-labelledby="titulo-passeios">
+        <h2 id="titulo-passeios">Passeios e eventos</h2>
+        <p class="estado" id="estado-eventos"></p>
+        <div id="eventos" class="eventos">
+          <p class="aviso-falha">Se os passeios não aparecerem, pergunte no CCI.</p>
+        </div>
+        <p class="voltar"><a href="#inicio">Voltar ao início</a></p>
+      </section>
+
+      <!-- O ESPAÇO E A CIDADE: fotos reais do CCI (a tirar) e da cidade -->
+      <section class="secao" aria-labelledby="titulo-espaco">
+        <h2 id="titulo-espaco">O espaço e a cidade</h2>
+        <p class="intro">Em breve, fotos do próprio CCI: o salão, as oficinas e os trabalhos feitos aqui. Enquanto isso, um pouco da Campos do Jordão que a gente vê no caminho.</p>
+        <div class="galeria">
+          <figure class="foto-moldura inclinada-esq">
+            <img src="img/abernessia.jpg" width="800" height="600" loading="lazy" alt="Jardim com banco, flores vermelhas e araucárias no bairro da Abernéssia, com a serra ao fundo.">
+            <figcaption>Abernéssia, o bairro do CCI. Foto: I. S. Miguel, CC BY-SA 3.0</figcaption>
+          </figure>
+          <figure class="foto-moldura">
+            <div class="foto-reservada">Foto do salão do CCI <span class="selo selo-confirmar">a tirar</span></div>
+            <figcaption>Espaço reservado para foto real, sem rostos ou com autorização assinada.</figcaption>
+          </figure>
+          <figure class="foto-moldura inclinada-dir">
+            <img src="img/hortensias.jpg" width="800" height="533" loading="lazy" alt="Hortênsias azuis claras em flor.">
+            <figcaption>Hortênsias, a flor da cidade. Foto: Deni Williams, CC BY 2.0</figcaption>
+          </figure>
+          <figure class="foto-moldura inclinada-esq">
+            <img src="img/araucaria.jpg" width="800" height="532" loading="lazy" alt="Araucária grande e frondosa contra o céu azul.">
+            <figcaption>Araucária, a árvore da serra. Foto: Haroldo Kalleder, CC BY-SA 3.0</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- NOTÍCIAS (some no período eleitoral) -->
+      <section id="noticias" class="secao" aria-labelledby="titulo-noticias" data-publicidade>
+        <h2 id="titulo-noticias">Notícias e fotos</h2>
+        <p class="estado" id="estado-noticias"></p>
+        <div id="lista-noticias" class="noticias"></div>
+        <p class="voltar"><a href="#inicio">Voltar ao início</a></p>
+      </section>
+
+      <!-- PARA A FAMÍLIA -->
+      <section id="familia" class="secao familia" aria-labelledby="titulo-familia">
+        <h2 id="titulo-familia">Para a família</h2>
+        <p class="intro">Conhece alguém que gostaria de participar? Mande as informações do CCI pelo WhatsApp ou imprima a programação para deixar na geladeira.</p>
+        <div class="botoes">
+          <a class="botao botao-principal js-whatsapp" href="https://wa.me/?text=Centro%20de%20Conviv%C3%AAncia%20do%20Idoso%20(CCI)%20de%20Campos%20do%20Jord%C3%A3o%3A%20atividades%20gratuitas%20para%20quem%20tem%2060%20anos%20ou%20mais.%20Av.%20Frei%20Orestes%20Girardi%2C%20105%2C%20Abern%C3%A9ssia.%20Telefone%20(12)%203662-4766." target="_blank" rel="noopener">
+            <svg class="icone" aria-hidden="true"><use href="#i-conversa"/></svg><span>Mandar pelo WhatsApp</span>
+          </a>
+          <button type="button" class="botao botao-claro js-imprimir">
+            <svg class="icone" aria-hidden="true"><use href="#i-impressora"/></svg><span>Imprimir a programação</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- COMO CHEGAR -->
+      <section id="como-chegar" class="secao" aria-labelledby="titulo-chegar">
+        <h2 id="titulo-chegar">Como chegar</h2>
+        <div class="chegar">
+          <figure class="mapinha">
+            <img src="img/ilustracoes/mapa.svg" width="600" height="340" loading="lazy" alt="Desenho fora de escala: a avenida Frei Orestes Girardi com o trilho do bondinho ao lado, a Parada Fracalanza e o prédio do CCI marcado com um alfinete do outro lado da avenida.">
+            <figcaption>
+              <ul class="legenda">
+                <li><span class="legenda-cor legenda-cci" aria-hidden="true"></span>CCI, Av. Frei Orestes Girardi, 105</li>
+                <li><span class="legenda-cor legenda-parada" aria-hidden="true"></span>Parada Fracalanza do bondinho</li>
+                <li><span class="legenda-cor legenda-trilho" aria-hidden="true"></span>Trilho do bondinho</li>
+              </ul>
+              <p class="nota">Desenho fora de escala, só para dar uma ideia. <span class="selo selo-confirmar">conferir as posições no local</span></p>
+            </figcaption>
+          </figure>
+          <div>
+            <dl class="dados">
+              <div>
+                <dt>Endereço</dt>
+                <dd>Av. Frei Orestes Girardi, 105<br>Bairro Abernéssia, Campos do Jordão (SP)</dd>
+              </div>
+              <div>
+                <dt>Ponto de referência</dt>
+                <dd>Perto da Parada Fracalanza do bondinho</dd>
+              </div>
+              <div>
+                <dt>Horário</dt>
+                <dd>Segunda a sexta, das 8h15 às 16h <span class="selo selo-confirmar">confirmar horário de abertura</span></dd>
+              </div>
+              <div>
+                <dt>Telefone</dt>
+                <dd><span class="js-telefone-texto">(12) 3662-4766</span></dd>
+              </div>
+            </dl>
+            <div class="botoes">
+              <a class="botao botao-principal js-mapa-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Frei%20Orestes%20Girardi%2C%20105%2C%20Aberness%C3%ADa%2C%20Campos%20do%20Jord%C3%A3o%20-%20SP" target="_blank" rel="noopener">
+                <svg class="icone" aria-hidden="true"><use href="#i-local"/></svg><span>Abrir no mapa do celular</span>
+              </a>
+              <a class="botao botao-claro js-telefone-link" href="tel:+551236624766">
+                <svg class="icone" aria-hidden="true"><use href="#i-telefone"/></svg><span>Ligar para o CCI</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="largura rodape-grade">
+      <div>
+        <p class="rodape-marca">Centro de Convivência do Idoso</p>
+        <p>Av. Frei Orestes Girardi, 105, Abernéssia · Campos do Jordão (SP)</p>
+        <p>Telefone <span class="js-telefone-texto">(12) 3662-4766</span></p>
+        <p><a href="#inicio">↑ Voltar ao início</a></p>
+      </div>
+      <div>
+        <p><strong>As informações oficiais são da Prefeitura de Campos do Jordão</strong>, Secretaria de Desenvolvimento e Assistência Social. Em caso de dúvida, confirme por telefone ou no próprio CCI.</p>
+        <p><a href="https://camposdojordao.sp.gov.br/" target="_blank" rel="noopener">Site da Prefeitura de Campos do Jordão</a></p>
+      </div>
+    </div>
+    <div class="largura">
+      <h2 class="rodape-titulo">Créditos das fotos</h2>
+      <ul class="creditos">
+        <li><a href="https://commons.wikimedia.org/wiki/File:Bondinho_-_Estrada_de_Ferro_Campos_do_Jord%C3%A3o_-_panoramio.jpg">Bondinho: BêS (CC BY-SA 3.0)</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Abern%C3%A9ssia,_Campos_do_Jord%C3%A3o_-_SP,_Brazil_-_panoramio.jpg">Abernéssia: Ismael Soares Miguel (CC BY-SA 3.0)</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Campos_do_Jord%C3%A3o_(8903578305).jpg">Hortênsias: Deni Williams (CC BY 2.0)</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Arauc%C3%A1ria_ou_Pinheiro_do_Paran%C3%A1_(Araucaria_angustifolia).jpg">Araucária: Haroldo Kalleder (CC BY-SA 3.0)</a></li>
+      </ul>
+      <p class="rodape-pequeno">Fotos do Wikimedia Commons, com licença livre, reduzidas para abrir rápido. Desenhos e mapa feitos para este site.</p>
+      <p class="rodape-pequeno">Site feito voluntariamente, sem fins comerciais, por Henrique Martins.</p>
+    </div>
+  </footer>
+
+  <!-- Barra fixa no celular: ligar e como chegar sempre à mão -->
+  <nav class="barra-fixa" aria-label="Contato rápido">
+    <a class="js-telefone-link" href="tel:+551236624766"><svg class="icone" aria-hidden="true"><use href="#i-telefone"/></svg>Ligar</a>
+    <a href="#como-chegar"><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Como chegar</a>
+  </nav>
+
+  <!-- Folha para imprimir (montada pelo site na hora de imprimir) -->
+  <div id="folha-impressao" class="folha-impressao" aria-hidden="true"></div>
+
+  <script src="config.js?v=13"></script>
+  <script src="js/app.js?v=13"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+dia_da_semana,horario_inicio,horario_fim,atividade,responsavel,semana_do_mes,local,observacao,ativo
+segunda,08:30,09:20,Ginástica Aerofight,Diego,,,,sim
+segunda,10:00,11:00,Ginástica Funcional,Rafael,,,,sim
+segunda,14:00,16:00,Artesanato,Mariana,,,,sim
+terça,08:30,09:30,Ginástica,Diego,,,,sim
+terça,09:30,10:30,Grupo de Canto,,,,,sim
+terça,10:30,11:30,Tênis de mesa,,,,,sim
+terça,14:00,16:00,Jogo de tabuleiro,,,,,sim
+quarta,08:30,09:30,Massagem,Vera Lúcia,,,,sim
+quarta,10:00,11:00,Aulas de Caligrafia,,,,,sim
+quarta,14:00,15:00,Dança,Estela,,,,sim
+quarta,15:00,16:00,Alongamento,Vanise,,,,sim
+quinta,08:15,09:15,Ginástica,Gisele,,,,sim
+quinta,09:15,10:15,Psicóloga,Iracilda,,,,sim
+quinta,10:30,11:30,Dança,Regis,,,,sim
+quinta,13:00,15:00,Tênis de mesa,,,,,sim
+quinta,15:00,16:00,Grupo de Canto,Lucia,,,,sim
+sexta,09:00,10:30,Oficina de Teatro,,,,,sim
+sexta,14:00,16:00,Bingo,,1,,,sim
+sexta,14:00,16:00,Café com Poesia,,2,,,sim
+sexta,14:00,16:00,Passeio ao Museu Felícia Leirner,,3,,,sim
+sexta,14:00,16:00,Livre para eventos,,4,,,sim

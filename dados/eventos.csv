@@ -2,3 +2,4 @@ data,horario,tipo,titulo,descricao,local,como_participar,ativo
 14/11/2026,8h,Passeio,[EXEMPLO] Passeio ao Horto Florestal,Saída de van do CCI. Volta antes do almoço.,Saída: em frente ao CCI,Inscrição no CCI até 10/11. Vagas limitadas.,sim
 28/11/2026,14h,Evento,[EXEMPLO] Baile da primavera,Tarde de música e dança para todos.,Salão principal do CCI,Aberto a todos os inscritos no CCI.,sim
 12/12/2026,10h,Evento,[EXEMPLO] Festa de fim de ano,Apresentação do coral e confraternização.,Salão principal do CCI,Família é bem-vinda.,sim
+20/11/2026,,Feriado,[EXEMPLO] Dia da Consciência Negra,,,,sim

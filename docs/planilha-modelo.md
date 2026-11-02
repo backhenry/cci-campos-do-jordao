@@ -47,6 +47,22 @@ Atividades que mudam conforme a semana do mês (como a tarde de sexta: 1ª sexta
 
 Eventos com data que já passou somem do site sozinhos.
 
+### Dia sem atividade (feriado, recesso, CCI fechado)
+
+Use a mesma aba `eventos`: uma linha com a **data** e, na coluna **tipo**, uma destas palavras: `Feriado`, `Sem atividade`, `Recesso`, `Fechado` ou `Ponto facultativo`. No **titulo**, o motivo (ex.: `Finados`). As outras colunas podem ficar vazias.
+
+| data | horario | tipo | titulo | ... | ativo |
+|---|---|---|---|---|---|
+| `02/11/2026` | | `Feriado` | `Finados` | | `sim` |
+
+O site então:
+- no cartão "Hoje", diz "Hoje não tem atividades: Feriado de Finados" e já indica a próxima atividade;
+- nos próximos dias, mostra o dia com "Não tem atividades" e o motivo;
+- lista os próximos dias sem atividade (até 3 meses), e eles também saem na folha impressa;
+- **não** mostra essa linha na lista de passeios.
+
+Vários dias seguidos (recesso de fim de ano, por exemplo) = uma linha por dia. Para cancelar só **uma** atividade (ex.: "não haverá bingo"), use a aba `avisos`.
+
 ## Aba `noticias`: notícias e fotos
 
 | Coluna | O que escrever | Exemplo |

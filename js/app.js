@@ -243,8 +243,48 @@
     return porDia;
   }
 
+  // ---------- Dias sem atividade (feriados, recesso) ----------
+  // Vêm da aba "eventos": linhas cujo tipo é Feriado, Sem atividade, Recesso, Fechado ou Ponto facultativo.
+
+  var DIAS_FECHADOS = {}; // "2026-11-02" -> "Feriado de Finados"
+
+  function chaveDaData(d) {
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+
+  function ehDiaSemAtividade(e) {
+    var t = semAcento(e.tipo);
+    return ["feriado", "sem atividade", "recesso", "fechado", "ponto facultativo"].some(function (p) { return t.indexOf(p) === 0; });
+  }
+
+  function motivoDoFechamento(e) {
+    var tipo = String(e.tipo || "").trim(), titulo = semExemplo(e.titulo);
+    if (!titulo) return maiuscula(tipo);
+    // "Feriado" + "Finados" vira "Feriado de Finados"; se o título já diz tudo, usa só o título
+    if (semAcento(titulo).indexOf(semAcento(tipo)) === 0) return titulo;
+    // "Feriado do Dia da Consciência Negra", "Feriado de Finados"
+    var ligacao = /^dia\b/.test(semAcento(titulo)) ? " do " : " de ";
+    return maiuscula(tipo) + ligacao + titulo;
+  }
+
+  function guardarDiasFechados(linhasEventos) {
+    DIAS_FECHADOS = {};
+    (linhasEventos || []).filter(ativo).filter(ehDiaSemAtividade).forEach(function (e) {
+      var d = lerData(e.data);
+      if (d) DIAS_FECHADOS[chaveDaData(d)] = motivoDoFechamento(e);
+    });
+  }
+
+  function fechadoEm(data) { return DIAS_FECHADOS[chaveDaData(data)] || ""; }
+
   function atividadesDaData(porDia, data) {
+    if (fechadoEm(data)) return [];
     return (porDia[data.getDay()] || []).filter(function (a) { return valeNaData(a, data); }).sort(ordenarPorHora);
+  }
+
+  // Atividades que haveria pela grade, ignorando feriados (para saber se o dia "perdeu" atividades)
+  function atividadesDaGrade(porDia, data) {
+    return (porDia[data.getDay()] || []).filter(function (a) { return valeNaData(a, data); });
   }
 
   // Primeiro dia com atividade depois de "data" (até 14 dias à frente)
@@ -274,7 +314,9 @@
       }
     }
     var prox = proximoDiaComAtividade(porDia, d);
-    var inicioFrase = deHoje.length ? "As atividades de hoje já terminaram. " : "Hoje não tem atividade marcada. ";
+    var motivo = fechadoEm(d);
+    var inicioFrase = motivo ? "Hoje não tem atividades: " + motivo + ". "
+      : deHoje.length ? "As atividades de hoje já terminaram. " : "Hoje não tem atividade marcada. ";
     if (!prox) return inicioFrase + "Na dúvida, ligue para o CCI.";
     var quando = prox.distancia === 1 ? "Amanhã (" + DIAS[prox.data.getDay()] + ")" : maiuscula(dataPorExtenso(prox.data));
     return inicioFrase + quando + ", a primeira é às " + hhmm(prox.lista[0].horario_inicio) + ": " + comQuem(prox.lista[0]) + ".";
@@ -306,8 +348,17 @@
       var dataDia = somaDias(d, i);
       var lista = atividadesDaData(porDia, dataDia);
       var nome = DIAS[dataDia.getDay()];
-      if (!lista.length) { vazios.push(nome); continue; }
       var titulo = (i === 1 ? "Amanhã, " + nome : maiuscula(nome)) + ", " + dataDia.getDate() + "/" + (dataDia.getMonth() + 1);
+      var motivoDia = fechadoEm(dataDia);
+      // dia que teria atividade mas está fechado: aparece com o motivo, para ninguém ir à toa
+      if (motivoDia && atividadesDaGrade(porDia, dataDia).length) {
+        semana.appendChild(el("div", { class: "dia dia-fechado" }, [
+          el("h4", {}, [titulo]),
+          el("p", { class: "fechado" }, ["Não tem atividades: " + motivoDia + "."])
+        ]));
+        continue;
+      }
+      if (!lista.length) { vazios.push(nome); continue; }
       semana.appendChild(el("div", { class: "dia" }, [
         el("h4", {}, [titulo]),
         el("ul", { class: "atividades" }, lista.map(itemAtividade))
@@ -315,6 +366,21 @@
     }
     var semAtividade = document.getElementById("sem-atividade");
     if (semAtividade) semAtividade.textContent = vazios.length ? maiuscula(juntarNomes(vazios)) + ": sem atividades." : "";
+
+    // Lista dos próximos dias sem atividade (até 90 dias), para quem quer se planejar
+    var boxFechados = document.getElementById("dias-fechados");
+    if (boxFechados) {
+      limpar(boxFechados);
+      var proximos = Object.keys(DIAS_FECHADOS).sort().map(function (k) {
+        var p = k.split("-"); return { data: new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2])), motivo: DIAS_FECHADOS[k] };
+      }).filter(function (f) { return f.data > d && f.data <= somaDias(d, 90); });
+      if (proximos.length) {
+        boxFechados.appendChild(el("h3", { class: "subtitulo" }, ["Dias sem atividade"]));
+        boxFechados.appendChild(el("ul", { class: "lista-fechados" }, proximos.map(function (f) {
+          return el("li", {}, [el("strong", {}, [maiuscula(dataPorExtenso(f.data))]), ": " + f.motivo]);
+        })));
+      }
+    }
 
     montarHorariosDosGrupos(resultado.linhas);
     ultimaProgramacao = resultado.linhas;
@@ -408,6 +474,16 @@
         return el("li", {}, [el("strong", {}, [hora]), "  " + comQuem(a) + extra]);
       })));
     });
+    var hojeData = hoje();
+    var fechadosFolha = Object.keys(DIAS_FECHADOS).sort().map(function (k) {
+      var p = k.split("-"); return { data: new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2])), motivo: DIAS_FECHADOS[k] };
+    }).filter(function (f) { return f.data >= hojeData && f.data <= somaDias(hojeData, 60); });
+    if (fechadosFolha.length) {
+      folha.appendChild(el("h2", {}, ["Dias sem atividade"]));
+      folha.appendChild(el("ul", {}, fechadosFolha.map(function (f) {
+        return el("li", {}, [el("strong", {}, [f.data.toLocaleDateString("pt-BR")]), "  " + f.motivo]);
+      })));
+    }
     folha.appendChild(el("p", { class: "folha-rodape" }, ["Pode haver mudanças. Na dúvida, ligue para o CCI. Impresso em " + hoje().toLocaleDateString("pt-BR") + "."]));
   }
 
@@ -463,6 +539,7 @@
   function montarEventos(resultado) {
     var d = hoje();
     var futuros = resultado.linhas.filter(ativo)
+      .filter(function (e) { return !ehDiaSemAtividade(e); })
       .map(function (e) { e._data = lerData(e.data); return e; })
       .filter(function (e) { return e._data && e._data >= d; })
       .sort(function (a, b) { return a._data - b._data; });
@@ -595,7 +672,16 @@
 
   carregar("avisos").then(montarAvisos).catch(function () { /* sem avisos, sem problema */ });
 
-  carregar("programacao").then(montarProgramacao).catch(function () {
+  // A aba eventos também diz quais dias não têm atividade (feriados), por isso a
+  // programação espera por ela. Se os eventos falharem, a programação sai sem feriados.
+  var eventosPromessa = carregar("eventos");
+  var diasFechadosPromessa = eventosPromessa
+    .then(function (r) { guardarDiasFechados(r.linhas); })
+    .catch(function () { guardarDiasFechados([]); });
+
+  carregar("programacao").then(function (resultado) {
+    return diasFechadosPromessa.then(function () { montarProgramacao(resultado); });
+  }).catch(function () {
     falhou("estado-programacao", "semana", "Não foi possível carregar a programação agora. Ligue para o CCI ou vá até lá: a programação também fica no mural da unidade.")();
     var boxHoje = document.getElementById("hoje");
     limpar(boxHoje);
@@ -603,7 +689,7 @@
     boxHoje.appendChild(el("p", {}, ["Programação indisponível no momento. Ligue para o CCI."]));
   });
 
-  carregar("eventos").then(montarEventos)
+  eventosPromessa.then(montarEventos)
     .catch(falhou("estado-eventos", "eventos", "Não foi possível carregar os passeios agora. Pergunte no CCI."));
 
   if (!CONFIG.modoInformativo) {

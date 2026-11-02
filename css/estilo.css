@@ -441,3 +441,11 @@ body { padding-bottom: 5.5rem; }
 .caderno .ajuda-doc-texto li { line-height: 1.5; padding: .2rem 0; }
 .caderno .ajuda-doc-texto li::before { content: none; }
 .ajuda-doc-texto a { display: inline-flex; align-items: center; min-height: 48px; font-weight: 700; }
+
+/* ---------- Dias sem atividade (feriados, recesso) ---------- */
+.dia-fechado { border: 2px dashed var(--terracota); background: var(--terracota-claro); }
+.fechado { margin: 0; font-weight: 700; color: var(--terracota); }
+.dias-fechados:empty { display: none; }
+.lista-fechados { list-style: none; margin: 0; padding: 0; background: var(--branco); border: 1px solid var(--borda); border-radius: 12px; }
+.lista-fechados li { padding: .75rem 1.25rem; border-top: 1px solid var(--papel-escuro); }
+.lista-fechados li:first-child { border-top: 0; }

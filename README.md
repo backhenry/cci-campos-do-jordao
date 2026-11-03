@@ -47,13 +47,13 @@ Site informativo, **voluntário e gratuito**, do CCI "Wilma Jundi Dubieux". Proj
 - Roteiro de teste com idosos em `docs/roteiro-teste-usuarios.md`.
 
 **Visual acolhedor.** A ideia é parecer feito à mão por gente da cidade, não um modelo pronto:
-- **Fotos reais de Campos do Jordão** (Abernéssia, bondinho, araucária, hortênsias) com licença livre e crédito ao autor (lista em `docs/creditos-imagens.md`). Nenhuma foto finge ser do CCI.
+- **Fotos ilustrativas de idosos em centros de convivência** (dança, baile, ginástica, artesanato, jogos), do Unsplash, com licença livre e crédito ao autor (lista em `docs/creditos-imagens.md`). Cada legenda diz que a foto é ilustrativa: nenhuma finge ser do CCI. Devem ser trocadas por fotos reais assim que houver (com termo de imagem assinado).
 - **Desenhos feitos para o site**, um para cada grupo de atividades da grade real (movimento, mãos, voz, cuidado, encontros).
 - **Papel creme, bilhete com fita adesiva e caderno pautado** para a lista de documentos. As fotos têm moldura branca, como foto revelada.
 - **Títulos com serifa** que já vêm no aparelho (Palatino ou Georgia), sem baixar fonte.
 - **Espaços reservados para as fotos do próprio CCI**, a serem tiradas sem rostos ou com autorização.
 
-Não usei bibliotecas prontas como Bootstrap ou Tailwind: elas deixariam o site mais pesado e com cara de modelo. Toda cor passou no teste de contraste AAA antes de entrar. As fotos foram comprimidas: cerca de 380 KB de imagens no celular.
+Não usei bibliotecas prontas como Bootstrap ou Tailwind: elas deixariam o site mais pesado e com cara de modelo. Toda cor passou no teste de contraste AAA antes de entrar. As fotos foram comprimidas: cerca de 390 KB de imagens no celular.
 
 **Fotos e LGPD.** Uma foto só aparece se a coluna `autorizacao_de_imagem` estiver com "sim". Sem isso, o site esconde a foto mesmo que o link esteja na planilha. O site não tem formulário, contador de visitas nem mapa embutido do Google: não coleta dados de quem visita. O "Como chegar" usa um mapinha desenhado (fora de escala) e um botão que abre o mapa do próprio celular. O tamanho de letra escolhido no A+/A− fica guardado só naquele aparelho.
 

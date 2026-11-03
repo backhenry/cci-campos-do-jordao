@@ -88,7 +88,7 @@ a:focus-visible, button:focus-visible, iframe:focus-visible { outline: 4px solid
 .abertura-grade { display: grid; gap: 1.25rem; align-items: center; }
 .abertura-foto { margin: 0; }
 .abertura-foto img {
-  display: block; width: 100%; height: 170px; object-fit: cover; object-position: center 72%;
+  display: block; width: 100%; height: 190px; object-fit: cover; object-position: center 22%;
   border-radius: 6px; background: var(--papel-escuro);
 }
 .abertura-foto figcaption, .foto-moldura figcaption { font-size: 1.125rem; line-height: 1.4; color: var(--tinta-2); margin-top: .5rem; }
